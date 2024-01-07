@@ -20,16 +20,12 @@ import {
 	TRANSLATION_HEADER_PORTFOLIO,
 	TRANSLATION_HEADER_PRICE,
 	TRANSLATION_HEADER_PROFILE,
-	TRANSLATION_HEADER_VIDEOS_ON_WORK,
 	TRANSLATION_MAIN_ORDER_VIDEO,
-	TRANSLATION_ORDERS_GO_TO_ORDERS,
 } from '@/translation-keys';
 import { HeaderType } from '@/models/header-type';
 import useUser from '@/hooks/use-user';
 import ProfileDropdown from '@/components/header/profile-dropdown';
 import IcProfile from '@/assets/svg/icons/ic_profile.svg';
-import Container from '@/components/container/container';
-import { ContainerStyle } from '@/components/container/container.styles';
 import IcLogout from '@/assets/svg/icons/ic_logout.svg';
 import { useMutation } from '@apollo/client';
 import { LOGOUT_MUTATION, LogoutMutationResponse } from '@/graphql/services/user/mutations/logout';

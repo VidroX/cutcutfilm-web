@@ -5,8 +5,6 @@ import Container from '@/components/container/container';
 import { ContainerStyle } from '@/components/container/container.styles';
 import {
 	TRANSLATION_AUTH_LETS_GET_STARTED,
-	TRANSLATION_AUTH_LOGIN_TITLE,
-	TRANSLATION_AUTH_REGISTER,
 	TRANSLATION_AUTH_SIGN_UP,
 	TRANSLATION_COMMON_APP_NAME,
 } from '@/translation-keys';
