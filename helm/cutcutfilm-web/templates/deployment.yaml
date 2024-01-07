@@ -17,8 +17,14 @@ spec:
         - name: {{ .Values.services.web.name }}
           image: {{ .Values.services.web.image }}
           env:
+            - name: NEXT_PUBLIC_DEBUG
+              value: "{{ .Values.debug }}"
             - name: NODE_ENV
               value: "production"
+            - name: NEXT_PUBLIC_ENVIRONMENT_TYPE
+              value: "{{ .Values.environmentType }}"
+            - name: NEXT_PUBLIC_GATEWAY_SERVICE_LOCATION
+              value: "{{ .Values.apiUrl }}"
           ports:
             - containerPort: {{ .Values.services.web.containerPort }}
       {{- with .Values.imagePullSecrets }}
