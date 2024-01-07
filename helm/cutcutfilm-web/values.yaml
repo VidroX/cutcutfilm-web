@@ -5,7 +5,7 @@ host: "cutcutfilm.com"
 
 debug: false
 environmentType: "production"
-apiUrl: "https://cutcutfilm.com/gql"
+apiUrl: "https://cutcutfilm.com/api/gql"
 
 imagePullSecrets: [{ name: cutcutfilm-ghcr }]
 

@@ -5,7 +5,7 @@ host: "ccf-dev.vidrox.me"
 
 debug: true
 environmentType: "development"
-apiUrl: "https://ccf-dev.vidrox.me/gql"
+apiUrl: "https://ccf-dev.vidrox.me/api/gql"
 
 imagePullSecrets: [{ name: cutcutfilm-ghcr }]
 
