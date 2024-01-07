@@ -2,14 +2,14 @@ version: "3.8"
 services:
   web:
     build:
-      context: ./services/gateway
+      context: ./app
       dockerfile: Dockerfile.dev
+      args:
+        DEBUG: true
+        NODE_ENV: development
+        ENVIRONMENT_TYPE: development
     env_file: 
       - ./app/.env.local
-    environment:
-      - NEXT_PUBLIC_DEBUG=true
-      - NODE_ENV=development
-      - NEXT_PUBLIC_ENVIRONMENT_TYPE=development
     volumes:
       - ./app:/app/cutcutfilm/services/web
       - /app/cutcutfilm/services/web/node_modules

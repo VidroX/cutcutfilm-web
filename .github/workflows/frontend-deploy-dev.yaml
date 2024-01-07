@@ -40,6 +40,11 @@ jobs:
           push: true
           context: ${{ env.WORKING_DIRECTORY }}
           platforms: linux/amd64
+          build-args: |
+            NODE_ENV=production
+            DEBUG=${{ vars.NEXT_PUBLIC_DEBUG }}
+            ENVIRONMENT_TYPE=${{ vars.NEXT_PUBLIC_ENVIRONMENT_TYPE }}
+            GATEWAY_SERVICE_LOCATION=${{ vars.NEXT_PUBLIC_GATEWAY_SERVICE_LOCATION }}
           tags: |
             ${{ env.IMAGE_NAME }}-latest
             ${{ env.IMAGE_NAME }}-${{ github.sha }}

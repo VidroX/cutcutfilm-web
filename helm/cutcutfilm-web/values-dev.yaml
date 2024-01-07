@@ -3,10 +3,6 @@ name: "cutcutfilm-web-dev"
 
 host: "ccf-dev.vidrox.me"
 
-debug: true
-environmentType: "development"
-apiUrl: "https://ccf-dev.vidrox.me/api/gql"
-
 imagePullSecrets: [{ name: cutcutfilm-ghcr }]
 
 services:

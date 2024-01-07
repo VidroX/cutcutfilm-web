@@ -3,10 +3,6 @@ name: "cutcutfilm-web"
 
 host: "cutcutfilm.com"
 
-debug: false
-environmentType: "production"
-apiUrl: "https://cutcutfilm.com/api/gql"
-
 imagePullSecrets: [{ name: cutcutfilm-ghcr }]
 
 services:
