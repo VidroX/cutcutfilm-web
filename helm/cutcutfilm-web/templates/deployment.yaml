@@ -13,6 +13,7 @@ spec:
       labels:
         app: {{ .Values.services.web.name }}
     spec:
+      dnsPolicy: Default
       containers:
         - name: {{ .Values.services.web.name }}
           image: {{ .Values.services.web.image }}
