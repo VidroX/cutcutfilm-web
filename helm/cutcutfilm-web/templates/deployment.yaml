@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.services.web.name }}
+  namespace: {{ .Values.namespace }}
+spec:
+  selector:
+    matchLabels:
+      app: {{ .Values.services.web.name }}
+  replicas: {{ .Values.services.web.replicas }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.services.web.name }}
+    spec:
+      containers:
+        - name: {{ .Values.services.web.name }}
+          image: {{ .Values.services.web.image }}
+          env:
+            - name: NEXT_PUBLIC_DEBUG
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ .Values.services.web.name }}-config
+                  key: debug
+            - name: NODE_ENV
+              value: "production"
+            - name: NEXT_PUBLIC_ENVIRONMENT_TYPE
+              value: "{{ .Values.environmentType }}"
+            - name: NEXT_PUBLIC_GATEWAY_SERVICE_LOCATION
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ .Values.services.web.name }}-config
+                  key: gateway_service_location
+          ports:
+            - containerPort: {{ .Values.services.web.containerPort }}
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}

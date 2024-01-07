@@ -1,0 +1,12 @@
+apiVersion: v2
+name: cutcutfilm-web
+description: A Helm chart for cutcutfilm front-end
+type: application
+version: 1.0.0
+appVersion: 1.0.0
+keywords:
+  - cutcutfilm-web
+home: https://github.com/VidroX/cutcutfilm-web/tree/dev/helm
+maintainers:
+  - name: Vadym Karachenko
+    url: https://github.com/VidroX

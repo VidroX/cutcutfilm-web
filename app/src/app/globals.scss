@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  line-height: 150%;
+  font-size: 1rem;
+}
+
+input[type=checkbox]:checked {
+  background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='white' xmlns='http://www.w3.org/2000/svg'%3E%3Cg id='icon/check'%3E%3Cg id='Vector' filter='url(%23filter0_d_291_8526)'%3E%3Cpath d='M17.0324 4.00041C16.7882 4.00768 16.5565 4.10973 16.3863 4.28492L6.71272 13.9585L3.61792 10.8637C3.53132 10.7735 3.42759 10.7015 3.31281 10.6518C3.19803 10.6022 3.07451 10.576 2.94948 10.5748C2.82444 10.5735 2.70041 10.5972 2.58465 10.6444C2.46888 10.6917 2.36371 10.7616 2.27529 10.85C2.18688 10.9384 2.11699 11.0436 2.06973 11.1594C2.02247 11.2751 1.99878 11.3992 2.00005 11.5242C2.00132 11.6492 2.02753 11.7727 2.07714 11.8875C2.12674 12.0023 2.19876 12.106 2.28895 12.1926L6.04823 15.9519C6.22449 16.1281 6.4635 16.2271 6.71272 16.2271C6.96193 16.2271 7.20094 16.1281 7.3772 15.9519L17.7152 5.61389C17.851 5.48188 17.9438 5.31192 17.9813 5.12629C18.0189 4.94066 17.9995 4.74801 17.9257 4.57359C17.8519 4.39917 17.7271 4.25112 17.5677 4.14884C17.4083 4.04656 17.2217 3.99483 17.0324 4.00041Z'/%3E%3C/g%3E%3C/g%3E%3Cdefs%3E%3Cfilter id='filter0_d_291_8526' x='2' y='4' width='16' height='13.2271' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'%3E%3CfeFlood flood-opacity='0' result='BackgroundImageFix'/%3E%3CfeColorMatrix in='SourceAlpha' type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0' result='hardAlpha'/%3E%3CfeOffset dy='1'/%3E%3CfeComposite in2='hardAlpha' operator='out'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0'/%3E%3CfeBlend mode='normal' in2='BackgroundImageFix' result='effect1_dropShadow_291_8526'/%3E%3CfeBlend mode='normal' in='SourceGraphic' in2='effect1_dropShadow_291_8526' result='shape'/%3E%3C/filter%3E%3C/defs%3E%3C/svg%3E");
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-grotesque);
+  line-height: 150%;
+  font-weight: 700;
+}
+
+h5 {
+  font-size: 1.125rem;
+}
+
+h6 {
+  font-size: 1rem;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 120%;
+}
+
+@media (min-width: 768px) {
+  h1 {
+    font-size: 2.75rem;
+    font-weight: 900;
+  }
+}
+
+@media (min-width: 1024px) {
+  h1 {
+    font-size: 3.5rem;
+    font-weight: 900;
+  }
+}
+
+.loader {
+  display: inline-block;
+  position: relative;
+  width: 64px;
+  height: 64px;
+
+  div {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    width: 64px;
+    height: 64px;
+    border: 4px solid;
+    border-radius: 50%;
+    animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border-color: #000 transparent transparent transparent;
+
+    &:nth-child(1) {
+      animation-delay: -0.45s;
+    }
+
+    &:nth-child(2) {
+      animation-delay: -0.3s;
+    }
+
+    &:nth-child(3) {
+      animation-delay: -0.15s;
+    }
+  }
+}
+
+@keyframes lds-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
