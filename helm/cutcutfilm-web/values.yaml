@@ -1,0 +1,19 @@
+namespace: "cutcutfilm"
+name: "cutcutfilm-web"
+
+host: "cutcutfilm.com"
+
+debug: false
+environmentType: "production"
+apiUrl: "https://cutcutfilm.com/api/gql"
+
+imagePullSecrets: [{ name: cutcutfilm-ghcr }]
+
+services:
+  web:
+    replicas: 1
+    path: "/"
+    name: "cutcutfilm-web"
+    secretName: "ccf-secret"
+    image: ""
+    containerPort: 3000

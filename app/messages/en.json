@@ -1,0 +1,68 @@
+{
+  "common": {
+    "appName": "cutcutfilm",
+    "continue": "Continue",
+    "termsOfUse": "Terms of Use",
+    "privacyPolicy": "Privacy Policy",
+    "and": "and",
+    "fieldRequired": "This field is required"
+  },
+  "auth": {
+    "loginAction": "Log in",
+    "loginTitle": "Login",
+    "register": "Register",
+    "signUp": "Sign up",
+    "signIn": "Sign in",
+    "emailOrUsername": "Email / Username",
+    "email": "Email",
+    "username": "Username",
+    "password": "Password",
+    "confirmPassword": "Confirm password",
+    "welcomeBack": "Welcome back!",
+    "letsGetStarted": "Let’s get started!",
+    "authSidebar": {
+      "point1": {
+        "title": "24 hours",
+        "description": "You come to us and you get fast results. At the same time, the video is of high quality and fully suits you."
+      },
+      "point2": {
+        "title": "Ease of use",
+        "description": "Our user-friendly platform ensures that anyone can access professional video editing – just upload your video, and we'll handle the rest."
+      },
+      "point3": {
+        "title": "For just $50",
+        "description": "Unlock professional-grade video editing services that won't break the bank."
+      }
+    },
+    "newToSite": "New to site?",
+    "forgotPassword": "I forgot my password",
+    "loginWith": "Or log in with",
+    "acknowledgeTerms": "By continuing, you are acknowledging and accepting our Terms of Use and Privacy Policy",
+    "haveAnAccount": "Already have an account?",
+    "agreeToTermsAndConditions": "Please agree to the Terms of Use and Privacy Policy if you want to proceed",
+    "passwordsDontMatch": "Passwords do not match"
+  },
+  "main": {
+    "orderVideo": "Order a video",
+    "goToMain": "Go to main page"
+  },
+  "header": {
+    "portfolio": "Portfolio",
+    "aboutService": "About service",
+    "price": "Price",
+    "faq": "FAQ",
+    "profile": "Profile",
+    "logout": "Logout",
+    "videosOnWork": "You have {count, plural, =0 {no videos} =1 {1 video} other {# videos}} on work",
+    "orders": "Orders"
+  },
+  "errors": {
+    "404": {
+      "notFound": "Page Not Found",
+      "pageMoved": "The page you are looking for doesn't exist or has been moved"
+    }
+  },
+  "orders": {
+    "goToOrders": "Go to orders"
+  }
+}

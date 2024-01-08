@@ -1,0 +1,14 @@
+version: "3.8"
+services:
+  web:
+    build:
+      context: ./app
+      dockerfile: Dockerfile
+      args:
+        DEBUG: false
+        NODE_ENV: production
+        ENVIRONMENT_TYPE: production
+    env_file: 
+      - ./app/.env.local
+    ports:
+      - "3000:3000"
