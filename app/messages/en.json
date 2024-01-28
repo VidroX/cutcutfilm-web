@@ -56,6 +56,13 @@
     "videosOnWork": "You have {count, plural, =0 {no videos} =1 {1 video} other {# videos}} on work",
     "orders": "Orders"
   },
+  "footer": {
+    "contactUs": "Contact us",
+    "impress": "Impress",
+    "terms": "Terms",
+    "privacy": "Privacy",
+    "followUs": "Follow us"
+  },
   "errors": {
     "404": {
       "notFound": "Page Not Found",

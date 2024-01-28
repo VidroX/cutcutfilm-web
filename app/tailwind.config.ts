@@ -136,6 +136,9 @@ const config: Config = {
         'partial': '1.4 1.4 0%',
         '2': '2 2 0%',
       },
+      padding: {
+        button: '0.62rem 0.94rem',
+      },
     },
   },
 };

@@ -47,6 +47,13 @@ export const TRANSLATION_HEADER_LOGOUT = 'header.logout';
 export const TRANSLATION_HEADER_VIDEOS_ON_WORK = 'header.videosOnWork';
 export const TRANSLATION_HEADER_ORDERS = 'header.orders';
 
+// FOOTER
+export const TRANSLATION_FOOTER_CONTACT_US = 'footer.contactUs';
+export const TRANSLATION_FOOTER_IMPRESS = 'footer.impress';
+export const TRANSLATION_FOOTER_TERMS = 'footer.terms';
+export const TRANSLATION_FOOTER_PRIVACY = 'footer.privacy';
+export const TRANSLATION_FOOTER_FOLLOW_US = 'footer.followUs';
+
 // ERRORS
 export const TRANSLATION_ERRORS_404_NOT_FOUND = 'errors.404.notFound';
 export const TRANSLATION_ERRORS_404_PAGE_MOVED = 'errors.404.pageMoved';

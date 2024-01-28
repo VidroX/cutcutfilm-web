@@ -1,5 +1,5 @@
 'use client';
 
 export default function HomePageContent() {
-	return <></>;
+	return <>Main page content placeholder</>;
 }

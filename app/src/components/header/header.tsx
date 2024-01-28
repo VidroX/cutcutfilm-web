@@ -16,7 +16,6 @@ import {
 	TRANSLATION_HEADER_ABOUT_SERVICE,
 	TRANSLATION_HEADER_FAQ,
 	TRANSLATION_HEADER_LOGOUT,
-	TRANSLATION_HEADER_ORDERS,
 	TRANSLATION_HEADER_PORTFOLIO,
 	TRANSLATION_HEADER_PRICE,
 	TRANSLATION_HEADER_PROFILE,
@@ -32,6 +31,7 @@ import { LOGOUT_MUTATION, LogoutMutationResponse } from '@/graphql/services/user
 import { UserContext } from '@/contexts/user.context';
 import useGlobalLoading from '@/hooks/use-global-loading';
 import OrdersContainer from '@/components/header/orders-container';
+import { MenuItem } from '@/models/menu-item';
 
 const Header = ({ headerType = HeaderType.None }: { headerType?: HeaderType }) => {
 	if (headerType === HeaderType.None) {
@@ -59,11 +59,6 @@ const BasicHeader = () => {
 	);
 };
 
-interface MenuItem {
-	name: string;
-	href: string;
-}
-
 const FullHeader = () => {
 	const { setUser } = useContext(UserContext);
 
@@ -87,31 +82,10 @@ const FullHeader = () => {
 	}, [ref.current?.clientHeight]);
 
 	const menuItems = useMemo((): MenuItem[] => {
-		if (user) {
-			return [
-				{
-					name: t(TRANSLATION_HEADER_ABOUT_SERVICE),
-					href: '#',
-				},
-				{
-					name: t(TRANSLATION_HEADER_ORDERS),
-					href: '/user/orders',
-				},
-				{
-					name: t(TRANSLATION_HEADER_PRICE),
-					href: '#',
-				},
-				{
-					name: t(TRANSLATION_HEADER_FAQ),
-					href: '#',
-				},
-			];
-		}
-
 		return [
 			{
 				name: t(TRANSLATION_HEADER_PORTFOLIO),
-				href: '/portfolio',
+				href: '/',
 			},
 			{
 				name: t(TRANSLATION_HEADER_ABOUT_SERVICE),
@@ -126,7 +100,7 @@ const FullHeader = () => {
 				href: '#',
 			},
 		];
-	}, [t, user]);
+	}, [t]);
 
 	const onLogout = async () => {
 		try {
@@ -164,7 +138,7 @@ const FullHeader = () => {
 								key={`web-menu-link-${index}`}
 								onClick={() => setExpanded(false)}
 								href={item.href}
-								className={index === menuItems.length - 1 ? '' : 'me-10'}>
+								className={index === menuItems.length - 1 ? 'font-medium' : 'me-10 font-medium'}>
 								{item.name}
 							</Link>
 						))}
@@ -231,8 +205,8 @@ const FullHeader = () => {
 									onClick={() => setExpanded(false)}
 									className={
 										index === menuItems.length - 1
-											? `mb-9 w-full py-small ${user ? 'px-4' : 'px-small'}`
-											: `mb-small w-full py-small ${user ? 'px-4' : 'px-small'}`
+											? `mb-9 w-full py-small font-medium ${user ? 'px-4' : 'px-small'}`
+											: `mb-small w-full py-small font-medium ${user ? 'px-4' : 'px-small'}`
 									}>
 									{item.name}
 								</Link>

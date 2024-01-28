@@ -5,6 +5,7 @@ import { I18nLocale } from '@/i18n';
 import { ReactNode } from 'react';
 import PageLayout from '@/components/page-layout';
 import { HeaderType } from '@/models/header-type';
+import { FooterType } from '@/models/footer-type';
 
 export function generateStaticParams() {
 	return i18nConfig.locales.map((locale) => ({ locale }));
@@ -21,5 +22,9 @@ export default async function MainLayout({ children, params: { locale } }: Props
 
 	unstable_setRequestLocale(locale);
 
-	return <PageLayout headerType={HeaderType.Full}>{children}</PageLayout>;
+	return (
+		<PageLayout headerType={HeaderType.Full} footerType={FooterType.Full} className=''>
+			{children}
+		</PageLayout>
+	);
 }

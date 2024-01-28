@@ -3,7 +3,6 @@ export enum LinkStyle {
 }
 
 const sharedStyles: string[] = [
-	'font-medium',
 	'hover:underline',
 	'focus:underline',
 	'active:no-underline',
@@ -17,7 +16,7 @@ const styleMap: Record<LinkStyle, string[]> = {
 		'text-text-primary',
 		'focus:text-secondary',
 		'hover:text-secondary',
-		'active:text-primary',
+		'active:text-secondary',
 	],
 };
 

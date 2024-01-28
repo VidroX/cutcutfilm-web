@@ -1,5 +1,6 @@
 export enum LogoStyle {
 	Primary,
+	Inverted,
 }
 
 interface LogoStyleColors {
@@ -13,6 +14,11 @@ const styleMap: Record<LogoStyle, LogoStyleColors> = {
 		textColor: 'hsl(var(--twc-text-primary))',
 		iconColor: 'hsl(var(--twc-secondary))',
 		outlineColor: 'hsl(var(--twc-primary))',
+	},
+	[LogoStyle.Inverted]: {
+		textColor: 'hsl(var(--twc-text-secondary))',
+		iconColor: 'hsl(var(--twc-secondary))',
+		outlineColor: 'hsl(var(--twc-primary-50))',
 	},
 };
 
