@@ -138,6 +138,8 @@ const config: Config = {
       },
       padding: {
         button: '0.62rem 0.94rem',
+        'layout-large': '6.25rem 5.62rem',
+        'layout-small': '3rem 1.25rem',
       },
     },
   },

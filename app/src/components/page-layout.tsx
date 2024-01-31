@@ -20,7 +20,7 @@ export default function PageLayout({
 	children,
 	headerType = HeaderType.None,
 	backgroundColor = 'hsl(var(--twc-background))',
-	className = 'container mx-auto py-12 lg:py-content',
+	className = 'container mx-auto p-layout-small lg:p-layout-large',
 	footerType = FooterType.None,
 }: Props) {
 	const { loading } = useContext(GlobalLoadingContext);
