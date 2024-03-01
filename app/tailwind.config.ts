@@ -97,6 +97,20 @@ const config: Config = {
           900: '#1A3F39',
           950: '#132D29',
         },
+        yellow: {
+          DEFAULT: '#FAE999',
+          50: '#FFFFFF',
+          100: '#FEFCF1',
+          200: '#FDF6D3',
+          300: '#FBEFB6',
+          400: '#FAE999',
+          500: '#F7DD64',
+          600: '#F5D22E',
+          700: '#E0BA0B',
+          800: '#AA8E08',
+          900: '#756106',
+          950: '#5A4B04'
+        },
         background: {
           DEFAULT: '#FFFFFF',
           50: '#FFFFFF',
@@ -106,6 +120,7 @@ const config: Config = {
         error: '#FE0000',
         text: {
           primary: '#000000',
+          blue: '#0A141E',
           secondary: '#FFFFFF',
           error: '#FE0000',
         },
@@ -117,19 +132,49 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      screens: {
+        'lg': `1080px`,
+      },
+      fontSize: {
+        'main-title-extra-large': ['3.875rem', {
+          lineHeight: '4.65rem',
+          fontWeight: '800',
+        }],
+        'main-title-large': ['3rem', {
+          lineHeight: '4rem',
+          fontWeight: '800',
+        }],
+        'main-title-medium': ['2.5rem', {
+          lineHeight: '3rem',
+          fontWeight: '800',
+        }],
+        'main-title-small': ['2rem', {
+          lineHeight: '2.4rem',
+          fontWeight: '800',
+        }],
+        '2.5xl': '1.75rem',
+        '3.5xl': '2rem',
+        '5.5xl': '3.5rem',
+      },
       boxShadow: {
         input: '3px 3px 0px 0px var(--tw-shadow-color)',
         button: '6px 6px 0px 0px var(--tw-shadow-color)',
         'button-active': '2px 2px 0px 0px var(--tw-shadow-color)',
         'container': '6px 6px 0px 0px var(--tw-shadow-color)',
+        'container-alternative': '1px 2px 0px 0px var(--tw-shadow-color)',
       },
       borderRadius: {
         button: '0.3125rem',
         input: '0.625rem',
       },
       spacing: {
-        content: '6.25rem',
+        'content-large': '8.62rem',
+        'content-medium': '6.25rem',
+        'content-small': '3rem',
+        'safe-area': '5.625rem',
+        'safe-area-small': '1.25rem',
         small: '0.625rem',
+        medium: '1.875rem',
         15: '3.75rem',
       },
       flex: {
@@ -139,7 +184,11 @@ const config: Config = {
       padding: {
         button: '0.62rem 0.94rem',
         'layout-large': '6.25rem 5.62rem',
+        'layout-medium': '6.25rem 1.25rem',
         'layout-small': '3rem 1.25rem',
+        'main-layout-large': '6.25rem 5.625rem 3.125rem 5.625rem',
+        'main-layout-medium': '6.25rem 1.25rem 1.625rem 1.25rem',
+        'main-layout-small': '3rem 1.25rem',
       },
     },
   },

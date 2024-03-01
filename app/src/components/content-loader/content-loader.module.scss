@@ -1,0 +1,41 @@
+$radius: 47;
+$pi: 3.14159265358979;
+$circumference: calc(#{$pi * 2} * #{$radius});
+$loadingCircleBaseline: calc(50% - #{$radius * 1%});
+$contentPadding: calc(#{$loadingCircleBaseline} + 6%);
+
+.loader-container {
+  width: calc(var(--rem-container-size) * 1rem);
+  height: calc(var(--rem-container-size) * 1rem);
+}
+
+.loader-content {
+  position: absolute;
+  top: $contentPadding;
+  bottom: $contentPadding;
+  left: $contentPadding;
+  right: $contentPadding;
+}
+
+.loader {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
+
+.loader-circle-inner {
+  fill: none;
+  stroke-width: 1px;
+}
+
+.loader-circle-outer {
+  fill: none;
+  stroke-width: 6px;
+  stroke-linecap: round;
+  //stroke-dasharray: calc((var(--loading-percent) / 100) * #{$circumference}) $circumference;
+  transform-origin: 50% 50%;
+  transform: rotateZ(270deg);
+  transition: 25ms;
+}

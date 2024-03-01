@@ -44,7 +44,52 @@
   },
   "main": {
     "orderVideo": "Order a video",
-    "goToMain": "Go to main page"
+    "goToMain": "Go to main page",
+    "topSection": {
+      "title": "Order a video in a few clicks and get results in 24 hours",
+      "whyUs": {
+        "title": "Why us?",
+        "24hours": {
+          "title": "24 hours",
+          "description": "By choosing our services, you can expect quick and effective results. At the same time, the video you've requested will be crafted with excellence, ensuring it perfectly aligns with your preferences and needs."
+        },
+        "easeOfUse": {
+          "title": "Ease of use",
+          "description": "Our user-friendly platform ensures that anyone can access professional video editing – just upload your video, and we'll handle the rest."
+        },
+        "cheap": {
+          "title": "For just $50",
+          "description": "Unlock professional-grade video editing services that won't break the bank."
+        }
+      },
+      "reviews": "{count, plural, =0 {0 reviews} =1 {1 review} other {# reviews}}"
+    },
+    "aboutUs": {
+      "title": "About us",
+      "description": "At our core, we're a team of passionate video production experts with more than <strong>15 years of industry experience.</strong> Over the years, we've honed our skills to create exceptional, tailor-made video products that captivate and resonate with your audience. \n\nOur deep-rooted understanding of the art and science of video production sets us apart, ensuring that we bring your vision to life with creativity and precision. Whether you're looking for captivating storytelling, high-quality corporate videos, or engaging promotional content, <strong>we're here</strong> to exceed your expectations. \n\n<strong>Choose us as a trusted partner</strong> in turning your ideas into remarkable video products that make a lasting impact."
+    },
+    "portfolio": {
+      "title": "Portfolio",
+      "vertical": "Vertical",
+      "horizontal": "Horizontal",
+      "pricingPlans": {
+        "title": "Beautiful videos Pricing Plans",
+        "description": {
+          "comprehensive": "A comprehensive option for businesses with more advanced needs.",
+          "basic": "A budget-friendly option for individuals and small businesses.",
+          "customizable": "A customizable plan for large organizations with specific needs."
+        },
+        "deliveryTime": "{count, plural, =0 {0 hours} =1 {1 hour} other {# hours}} delivery time",
+        "features": "Features",
+        "video": "video",
+        "only": "Only",
+        "professionalEdit": "Professional edit",
+        "customTitles": "Custom titles",
+        "revisions": "{count, plural, =0 {0 revisions} =1 {1 revision} other {# revisions}}",
+        "onlineSupport": "Online support",
+        "upToFiles": "Up to {count, plural, =0 {0 files} =1 {1 file} other {# files}}"
+      }
+    }
   },
   "header": {
     "portfolio": "Portfolio",

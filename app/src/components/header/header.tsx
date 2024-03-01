@@ -32,6 +32,8 @@ import { UserContext } from '@/contexts/user.context';
 import useGlobalLoading from '@/hooks/use-global-loading';
 import OrdersContainer from '@/components/header/orders-container';
 import { MenuItem } from '@/models/menu-item';
+import { joinClasses } from '@/utils/classname-utils';
+import useBreakpoints, { ScreenSize } from '@/hooks/use-breakpoints';
 
 const Header = ({ headerType = HeaderType.None }: { headerType?: HeaderType }) => {
 	if (headerType === HeaderType.None) {
@@ -77,27 +79,29 @@ const FullHeader = () => {
 
 	const user = useUser();
 
+	const isLargeScreen = useBreakpoints(ScreenSize.Large);
+
 	useLayoutEffect(() => {
-		setHeaderHeight(((ref.current?.clientHeight ?? 0) + 1) / 16);
+		setHeaderHeight((ref.current?.clientHeight ?? 0) + 1);
 	}, [ref.current?.clientHeight]);
 
 	const menuItems = useMemo((): MenuItem[] => {
 		return [
 			{
 				name: t(TRANSLATION_HEADER_PORTFOLIO),
-				href: '/',
+				href: '/#portfolio',
 			},
 			{
 				name: t(TRANSLATION_HEADER_ABOUT_SERVICE),
-				href: '#',
+				href: '/#aboutUs',
 			},
 			{
 				name: t(TRANSLATION_HEADER_PRICE),
-				href: '#',
+				href: '/#price',
 			},
 			{
 				name: t(TRANSLATION_HEADER_FAQ),
-				href: '#',
+				href: '/#faq',
 			},
 		];
 	}, [t]);
@@ -122,126 +126,146 @@ const FullHeader = () => {
 	};
 
 	return (
-		<header>
-			<div
-				ref={ref}
-				className={`border-b bg-background-50 px-5 lg:border-b-accent${
-					isExpanded ? ' border-b-black' : ''
-				}`}>
-				<div className='container mx-auto flex flex-row items-center justify-between pb-5 pt-6 duration-100'>
-					<NextLink onClick={() => setExpanded(false)} href='/' className='me-4'>
-						<CutcutfilmLogo />
-					</NextLink>
-					<div className='hidden flex-row lg:flex'>
-						{menuItems.map((item, index) => (
-							<Link
-								key={`web-menu-link-${index}`}
-								onClick={() => setExpanded(false)}
-								href={item.href}
-								className={index === menuItems.length - 1 ? 'font-medium' : 'me-10 font-medium'}>
-								{item.name}
-							</Link>
-						))}
-					</div>
-					<div className='hidden flex-row lg:flex'>
-						{!user && (
-							<>
-								<Button
-									buttonStyle={ButtonStyle.Text}
-									className='me-2'
-									onClick={() => push('/auth/login')}>
-									{t(TRANSLATION_AUTH_LOGIN_ACTION)}
-								</Button>
-								<Button className='flex flex-row items-center'>
-									<span className='me-2'>{t(TRANSLATION_MAIN_ORDER_VIDEO)}</span>
-									<Cursor />
-								</Button>
-							</>
-						)}
-						{user && <ProfileDropdown user={user} onLogout={onLogout} />}
-					</div>
-					<MenuButton isExpanded={isExpanded} onClick={setExpanded} />
-				</div>
-			</div>
-			<AnimatePresence initial={false}>
-				{isExpanded && (
-					<motion.div
-						initial='collapsed'
-						animate='open'
-						exit='collapsed'
-						variants={{
-							open: { opacity: 1 },
-							collapsed: { opacity: 0 },
-						}}
-						transition={{ duration: 0.1 }}
-						style={{
-							top: `${headerHeight}rem`,
-						}}
-						className='absolute bottom-0 left-0 right-0 z-40 flex w-full flex-col bg-background px-5 lg:hidden'>
-						<div className='container mx-auto flex flex-col items-center py-5 duration-100'>
-							{user && (
-								<>
-									<Button
-										expanded
-										buttonStyle={ButtonStyle.Text}
-										buttonSize={ButtonSize.None}
-										onClick={() => navigateToPath('/user/profile')}
-										className='mb-9 flex flex-row items-center !justify-start p-small !font-medium'>
-										<IcProfile className='me-3' />
-										<span>{t(TRANSLATION_HEADER_PROFILE)}</span>
-									</Button>
-									<ProfileDropdown expanded user={user} disabled={true} className='mb-9' />
-									<OrdersContainer
-										className='mb-9'
-										user={user}
-										onOrdersPress={() => navigateToPath('/user/orders')}
-									/>
-								</>
-							)}
+		<>
+			<style jsx global>
+				{`
+					html,
+					body {
+						position: ${isExpanded && !isLargeScreen ? 'fixed' : 'static'};
+						left: ${isExpanded && !isLargeScreen ? 0 : 'auto'};
+						right: ${isExpanded && !isLargeScreen ? 0 : 'auto'};
+						top: ${isExpanded && !isLargeScreen ? 0 : 'auto'};
+						bottom: ${isExpanded && !isLargeScreen ? 0 : 'auto'};
+						overflow-y: ${isExpanded && !isLargeScreen ? 'hidden' : 'auto'};
+					}
+				`}
+			</style>
+			<header>
+				<div
+					ref={ref}
+					className={joinClasses(
+						'border-b bg-background-50 px-safe-area-small lg:border-b-accent lg:px-safe-area',
+						{ 'border-b-black': isExpanded },
+					)}>
+					<div className='container mx-auto flex flex-row items-center justify-between pb-5 pt-6 duration-100'>
+						<NextLink onClick={() => setExpanded(false)} href='/' className='me-4'>
+							<CutcutfilmLogo />
+						</NextLink>
+						<div className='hidden flex-row lg:flex'>
 							{menuItems.map((item, index) => (
 								<Link
 									key={`web-menu-link-${index}`}
-									href={item.href}
+									scroll={false}
 									onClick={() => setExpanded(false)}
-									className={
-										index === menuItems.length - 1
-											? `mb-9 w-full py-small font-medium ${user ? 'px-4' : 'px-small'}`
-											: `mb-small w-full py-small font-medium ${user ? 'px-4' : 'px-small'}`
-									}>
+									href={item.href}
+									className={index === menuItems.length - 1 ? 'font-medium' : 'me-10 font-medium'}>
 									{item.name}
 								</Link>
 							))}
+						</div>
+						<div className='hidden flex-row lg:flex'>
 							{!user && (
 								<>
 									<Button
-										expanded
 										buttonStyle={ButtonStyle.Text}
-										className='mb-6 items-start text-start'
-										onClick={() => navigateToPath('/auth/login')}>
+										className='me-2'
+										onClick={() => push('/auth/login')}>
 										{t(TRANSLATION_AUTH_LOGIN_ACTION)}
 									</Button>
-									<Button expanded className='flex flex-row items-center'>
+									<Button className='flex flex-row items-center'>
 										<span className='me-2'>{t(TRANSLATION_MAIN_ORDER_VIDEO)}</span>
 										<Cursor />
 									</Button>
 								</>
 							)}
-							{user && (
-								<Button
-									expanded
-									buttonStyle={ButtonStyle.Text}
-									buttonSize={ButtonSize.None}
-									onClick={onLogout}
-									className='flex flex-row items-center !justify-start p-small !font-medium'>
-									<IcLogout className='me-3' />
-									<span>{t(TRANSLATION_HEADER_LOGOUT)}</span>
-								</Button>
-							)}
+							{user && <ProfileDropdown user={user} onLogout={onLogout} />}
 						</div>
-					</motion.div>
-				)}
-			</AnimatePresence>
-		</header>
+						<MenuButton isExpanded={isExpanded} onClick={setExpanded} />
+					</div>
+				</div>
+				<AnimatePresence initial={false}>
+					{isExpanded && (
+						<motion.div
+							initial='collapsed'
+							animate='open'
+							exit='collapsed'
+							variants={{
+								open: { opacity: 1 },
+								collapsed: { opacity: 0 },
+							}}
+							transition={{ duration: 0.1 }}
+							style={{
+								top: headerHeight ? `${headerHeight / 16}rem` : undefined,
+								paddingBottom: headerHeight ? `${headerHeight / 16}rem` : undefined,
+							}}
+							className='absolute bottom-0 left-0 right-0 z-40 flex h-full w-full flex-col bg-background lg:hidden'>
+							<div className='h-full overflow-y-auto px-5'>
+								<div className='container mx-auto flex h-fit flex-col items-center py-5 duration-100'>
+									{user && (
+										<>
+											<Button
+												expanded
+												buttonStyle={ButtonStyle.Text}
+												buttonSize={ButtonSize.None}
+												onClick={() => navigateToPath('/user/profile')}
+												className='mb-9 flex flex-row items-center !justify-start p-small !font-medium'>
+												<IcProfile className='me-3' />
+												<span>{t(TRANSLATION_HEADER_PROFILE)}</span>
+											</Button>
+											<ProfileDropdown expanded user={user} disabled={true} className='mb-9' />
+											<OrdersContainer
+												className='mb-9 shrink-0'
+												user={user}
+												onOrdersPress={() => navigateToPath('/user/orders')}
+											/>
+										</>
+									)}
+									{menuItems.map((item, index) => (
+										<Link
+											key={`web-menu-link-${index}`}
+											href={item.href}
+											onClick={() => setExpanded(false)}
+											className={
+												index === menuItems.length - 1
+													? `mb-9 w-full py-small font-medium ${user ? 'px-4' : 'px-small'}`
+													: `mb-small w-full py-small font-medium ${user ? 'px-4' : 'px-small'}`
+											}>
+											{item.name}
+										</Link>
+									))}
+									{!user && (
+										<>
+											<Button
+												expanded
+												buttonStyle={ButtonStyle.Text}
+												className='mb-6 items-start text-start'
+												onClick={() => navigateToPath('/auth/login')}>
+												{t(TRANSLATION_AUTH_LOGIN_ACTION)}
+											</Button>
+											<Button expanded className='flex flex-row items-center'>
+												<span className='me-2'>{t(TRANSLATION_MAIN_ORDER_VIDEO)}</span>
+												<Cursor />
+											</Button>
+										</>
+									)}
+									{user && (
+										<Button
+											expanded
+											buttonStyle={ButtonStyle.Text}
+											buttonSize={ButtonSize.None}
+											onClick={onLogout}
+											className='flex flex-row items-center !justify-start p-small !font-medium'>
+											<IcLogout className='me-3' />
+											<span>{t(TRANSLATION_HEADER_LOGOUT)}</span>
+										</Button>
+									)}
+								</div>
+							</div>
+						</motion.div>
+					)}
+				</AnimatePresence>
+			</header>
+		</>
 	);
 };
 

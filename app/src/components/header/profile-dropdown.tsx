@@ -12,8 +12,8 @@ import { ContainerStyle } from '@/components/container/container.styles';
 import { useTranslations } from 'next-intl';
 import { TRANSLATION_HEADER_LOGOUT, TRANSLATION_HEADER_PROFILE } from '@/translation-keys';
 import { useRouter } from '@/navigation';
-import { useClickAway } from '@uidotdev/usehooks';
 import OrdersContainer from '@/components/header/orders-container';
+import { useOnClickOutside } from 'usehooks-ts';
 
 type Props = {
 	user: User;
@@ -35,7 +35,9 @@ const ProfileDropdown = ({
 	const { push } = useRouter();
 
 	const contentRef = useRef<HTMLDivElement>(null);
-	const buttonContentRef = useClickAway<HTMLDivElement>(() => setShown(false));
+	const buttonContentRef = useRef<HTMLDivElement>(null);
+
+	useOnClickOutside(buttonContentRef, () => setShown(false));
 
 	const onRedirectRoute = (redirectTo: string) => {
 		setShown(false);

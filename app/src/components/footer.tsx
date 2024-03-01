@@ -45,19 +45,19 @@ const FullFooter = () => {
 		return [
 			{
 				name: t(TRANSLATION_HEADER_PORTFOLIO),
-				href: '/',
+				href: '/#portfolio',
 			},
 			{
 				name: t(TRANSLATION_HEADER_ABOUT_SERVICE),
-				href: '#',
+				href: '/#aboutUs',
 			},
 			{
 				name: t(TRANSLATION_HEADER_PRICE),
-				href: '#',
+				href: '/#price',
 			},
 			{
 				name: t(TRANSLATION_HEADER_FAQ),
-				href: '#',
+				href: '/#faq',
 			},
 		];
 	}, [t]);

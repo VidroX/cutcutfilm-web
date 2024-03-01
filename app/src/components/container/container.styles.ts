@@ -1,5 +1,6 @@
 export enum ContainerStyle {
 	Primary,
+	Secondary,
 	Accent,
 	Blue,
 	Basic,
@@ -13,6 +14,12 @@ const styleMap: Record<ContainerStyle, string[]> = {
 		'shadow-container',
 		'shadow-secondary-300',
 		'bg-background',
+	],
+	[ContainerStyle.Secondary]: [
+		...sharedStyles,
+		'shadow-container',
+		'shadow-secondary-950',
+		'bg-secondary-300',
 	],
 	[ContainerStyle.Accent]: [...sharedStyles, 'shadow-container', 'shadow-accent', 'bg-accent'],
 	[ContainerStyle.Blue]: [...sharedStyles, 'shadow-container', 'shadow-blue', 'bg-blue'],

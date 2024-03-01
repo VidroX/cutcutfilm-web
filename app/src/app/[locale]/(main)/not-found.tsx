@@ -16,7 +16,7 @@ export async function generateMetadata({ params: { locale } }: I18nLocale): Prom
 
 export default async function MainNotFoundPage() {
 	return (
-		<div className='p-layout-small lg:p-layout-large container mx-auto'>
+		<div className='container mx-auto p-layout-small lg:p-layout-large'>
 			<NotFoundContent />
 		</div>
 	);

@@ -37,6 +37,51 @@ export const TRANSLATION_AUTH_PASSWORDS_DO_NOT_MATCH = 'auth.passwordsDontMatch'
 export const TRANSLATION_MAIN_ORDER_VIDEO = 'main.orderVideo';
 export const TRANSLATION_MAIN_GO_TO_MAIN = 'main.goToMain';
 
+export const TRANSLATION_MAIN_TOP_SECTION_TITLE = 'main.topSection.title';
+export const TRANSLATION_MAIN_TOP_SECTION_WHY_US_TITLE = 'main.topSection.whyUs.title';
+export const TRANSLATION_MAIN_TOP_SECTION_WHY_US_24HOURS_TITLE =
+	'main.topSection.whyUs.24hours.title';
+export const TRANSLATION_MAIN_TOP_SECTION_WHY_US_24HOURS_DESCRIPTION =
+	'main.topSection.whyUs.24hours.description';
+export const TRANSLATION_MAIN_TOP_SECTION_WHY_US_EASE_OF_USE_TITLE =
+	'main.topSection.whyUs.easeOfUse.title';
+export const TRANSLATION_MAIN_TOP_SECTION_WHY_US_EASE_OF_USE_DESCRIPTION =
+	'main.topSection.whyUs.easeOfUse.description';
+export const TRANSLATION_MAIN_TOP_SECTION_WHY_US_CHEAP_TITLE = 'main.topSection.whyUs.cheap.title';
+export const TRANSLATION_MAIN_TOP_SECTION_WHY_US_CHEAP_DESCRIPTION =
+	'main.topSection.whyUs.cheap.description';
+export const TRANSLATION_MAIN_TOP_SECTION_REVIEWS = 'main.topSection.reviews';
+
+export const TRANSLATION_MAIN_ABOUT_US_TITLE = 'main.aboutUs.title';
+export const TRANSLATION_MAIN_ABOUT_US_DESCRIPTION = 'main.aboutUs.description';
+
+export const TRANSLATION_MAIN_PORTFOLIO_TITLE = 'main.portfolio.title';
+export const TRANSLATION_MAIN_PORTFOLIO_VERTICAL = 'main.portfolio.vertical';
+export const TRANSLATION_MAIN_PORTFOLIO_HORIZONTAL = 'main.portfolio.horizontal';
+export const TRANSLATION_MAIN_PORTFOLIO_PRICING_PLANS_TITLE = 'main.portfolio.pricingPlans.title';
+export const TRANSLATION_MAIN_PORTFOLIO_PRICING_PLANS_DESCRIPTION_COMPREHENSIVE =
+	'main.portfolio.pricingPlans.description.comprehensive';
+export const TRANSLATION_MAIN_PORTFOLIO_PRICING_PLANS_DESCRIPTION_BASIC =
+	'main.portfolio.pricingPlans.description.basic';
+export const TRANSLATION_MAIN_PORTFOLIO_PRICING_PLANS_DESCRIPTION_CUSTOMIZABLE =
+	'main.portfolio.pricingPlans.description.customizable';
+export const TRANSLATION_MAIN_PORTFOLIO_PRICING_PLANS_DELIVERY_TIME =
+	'main.portfolio.pricingPlans.deliveryTime';
+export const TRANSLATION_MAIN_PORTFOLIO_PRICING_PLANS_FEATURES =
+	'main.portfolio.pricingPlans.features';
+export const TRANSLATION_MAIN_PORTFOLIO_PRICING_PLANS_VIDEO = 'main.portfolio.pricingPlans.video';
+export const TRANSLATION_MAIN_PORTFOLIO_PRICING_PLANS_ONLY = 'main.portfolio.pricingPlans.only';
+export const TRANSLATION_MAIN_PORTFOLIO_PRICING_PLANS_PROFESSIONAL_EDIT =
+	'main.portfolio.pricingPlans.professionalEdit';
+export const TRANSLATION_MAIN_PORTFOLIO_PRICING_PLANS_CUSTOM_TITLES =
+	'main.portfolio.pricingPlans.customTitles';
+export const TRANSLATION_MAIN_PORTFOLIO_PRICING_PLANS_REVISIONS =
+	'main.portfolio.pricingPlans.revisions';
+export const TRANSLATION_MAIN_PORTFOLIO_PRICING_PLANS_ONLINE_SUPPORT =
+	'main.portfolio.pricingPlans.onlineSupport';
+export const TRANSLATION_MAIN_PORTFOLIO_PRICING_PLANS_UP_TO_FILES =
+	'main.portfolio.pricingPlans.upToFiles';
+
 // HEADER
 export const TRANSLATION_HEADER_PORTFOLIO = 'header.portfolio';
 export const TRANSLATION_HEADER_ABOUT_SERVICE = 'header.aboutService';
